@@ -1,0 +1,28 @@
+.round {
+  padding: 13px;
+  border-radius: 50%;
+  background-color: var(--primary400Color);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+
+  &:active {
+    background-color: var(--primary600Color);
+  }
+
+  &:disabled {
+    background-color: var(--primary300Color);
+  }
+
+  &__plus {
+    background-image: url(../../../assets/icons/plus-icon.svg);
+  }
+
+  &__minus {
+    background-image: url(../../../assets/icons/minus-icon.svg);
+  }
+}

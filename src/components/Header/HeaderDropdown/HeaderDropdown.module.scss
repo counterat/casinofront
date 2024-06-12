@@ -1,0 +1,95 @@
+.dropdown {
+  position: relative;
+  width: fit-content;
+
+  &__button {
+    padding: 10px 12px;
+    height: 44px;
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    background-color: var(--primary300Color);
+    color: var(--primeTextColor);
+    font-size: 20px;
+    font-weight: 600;
+
+    transition: all 0.2s 0.3s ease;
+
+    p {
+      span {
+        padding-right: 6px;
+      }
+    }
+  }
+
+  &__icon {
+    transition: all 0.3s ease;
+  }
+
+  &__open {
+    transform: rotate(90deg);
+  }
+
+  &__options {
+    padding: 0px;
+    position: absolute;
+    height: 0;
+    width: 0%;
+    overflow: hidden;
+    border-radius: 0 0 16px 16px;
+    background-color: var(--neutral100Color);
+    z-index: 2;
+
+    transition: padding 0.3s ease, height 0.3s ease, width 0.1s 0.3s ease;
+  }
+
+  &__option {
+    padding: 11px 6px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 600;
+    background-color: var(--neutral100Color);
+
+    span {
+      font-size: 10px;
+      color: var(--dropdownAmountColor);
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--dropdownAmountColor);
+
+      span {
+        padding-left: 2px;
+        font-size: 14px;
+        color: var(--dropdownCurrencySing);
+      }
+    }
+  }
+
+  &__selected {
+    background-color: rgba(20, 142, 255, 0.1);
+
+    span {
+      color: var(--checkboxShevronColor);
+    }
+  }
+}
+
+.active {
+  padding: 6px;
+  width: 100%;
+  height: 90px;
+
+  transition: padding 0.3s 0.2s ease, height 0.3s 0.2s ease, width 0.1s ease;
+}
+
+.active-btn {
+  border-radius: 16px 16px 0 0;
+  transition: all 0.2s ease;
+}

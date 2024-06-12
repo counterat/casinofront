@@ -1,0 +1,121 @@
+:root {
+  --primeTextColor: #fff;
+
+  --primary100Color: #e9f8ff;
+  --primary200Color: #6ab4ff;
+
+  --secondary100Color: #bfff0a;
+
+  --success100Color: #cdffd5;
+
+  --danger100Color: #ffcdcd;
+  --danger200Color: #ff3535;
+  --danger300Color: #e30f0f;
+
+  --warning100Color: #ffffe9;
+  --warning200Color: #ffd748;
+  --warning300Color: #ebbc17;
+
+  --gameColor: linear-gradient(0deg, #1456ff 0%, #0085ff 100%);
+  --gameColor: -moz-linear-gradient(0deg, #1456ff  0%, #0085ff 100%);
+  --gameColor: -webkit-linear-gradient(0deg, #1456ff  0%, #0085ff 100%);
+
+  --secondary300Color: linear-gradient(90deg, #f79400 0%, #ffd235 100%);
+  --secondary300Color: -moz-linear-gradient(90deg, #f79400 0%, #ffd235 100%);
+  --secondary300Color: -webkit-linear-gradient(90deg, #f79400 0%, #ffd235 100%);
+
+  --checkboxShevronColor: #148eff;
+  --primary500Color: #0056d6;
+
+  --success200Color: #2edf40;
+  --success300Color: #00c908;
+  --secondary200Color: #9ad100;
+}
+
+:root[data-theme='light'] {
+  --winInputBbColor: var(--success200Color);
+  --footerWithdravalSectionBgColor: var(--primary500Color);
+  --footerMultipleBtnBgColor: var(--primary400Color);
+  --dropdownNotSelectedElement: rgba(20, 142, 255, 0.43);
+  --balanceButtonWrapperBgColor: #eaf0f3;
+  --balanceButtonBgColor: var(--neutral100Color);
+  --userIdBgColor: #e9eaf0;
+  --modalBgColor: var(--neutral100Color);
+  --modalSubtitleTextColor: var(--neutral500Color);
+  --dropdownCurrencySing: rgba(20, 142, 255, 0.43);
+
+  --dropdownAmountColor: #095681;
+  --dropdownBalanceColor: #5E6970;
+  --tabMenuTextColorPassive: #60717e;
+  --tabMenuTextColorActive: #0a2737;
+
+  --neutral500TextColor: #555b6b;
+  --neutral200BgColor: #f0f2f7;
+
+  --neutral100Color: #fff;
+  --neutral200Color: #f0f2f7;
+  --neutral300Color: #d7dce9;
+  --neutral400Color: #bbc2d4;
+  --neutral450Color: #8a94ae;
+  --neutral500Color: #555b6b;
+  --neutral600Color: #202329;
+
+  --primary300Color: #519df8;
+  --primary400Color: #0075ff;
+  --primary400BgColor: #0075ff;
+
+  --primary600Color: #0044ab;
+
+  --secondary200Color: #9ad100;
+}
+
+:root[data-theme='dark'] {
+  --winInputBbColor: var(--success300Color);
+  --balanceButtonBgColor: var(--checkboxShevronColor);
+  --balanceButtonWrapperBgColor: rgba(20, 142, 255, 0.1);
+  --userIdBgColor: var(--balanceButtonWrapperBgColor);
+
+  --dropdownAmountColor: #095681;
+  --dropdownBalanceColor: #5E6970;
+  --tabMenuTextColorPassive: #60717e;
+  --tabMenuTextColorActive: #0a2737;
+  --modalBgColor: var(--neutral500Color);
+  --modalSubtitleTextColor: var(--primeTextColor);
+  --dropdownCurrencySing: var(--primeTextColor);
+
+  --neutral500TextColor: #555b6b;
+
+  --neutral600TextColor: #202329;
+
+  --tabMenuTextColorPassive: #60717e;
+  --tabMenuTextColorActive: #0a2737;
+
+  --primary200TextColor: #6ab4ff;
+  --primary300TextColor: #519df8;
+
+  --idTextColor: #8a94ae;
+
+
+  --primary400BgColor: #171b59;
+
+  --neutral100Color: #080b37;
+  --neutral200Color: #171b59;
+  --neutral300Color: #3e44a2;
+  --neutral400Color: #343987;
+  --neutral500Color: #5a60ba;
+  --neutral600Color: #e0e1f0;
+
+  --primary300Color: #343987;
+  --primary400Color: #2a74ff;
+  --primary500Color: #0855e5;
+
+  --secondary200Color: #afec00;
+
+  --success200Color: #0fe364;
+  --success300Color: #00c44e;
+
+  --footerWithdravalSectionBgColor: var(--primary300Color);
+  --footerMultipleBtnBgColor: var(--primary400BgColor);
+  --dropdownNotSelectedElement: var(--neutral600Color);
+  --dropdownAmountColor: var(--neutral600Color);
+}

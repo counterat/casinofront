@@ -1,0 +1,32 @@
+.avatar {
+  width: 260px;
+  display: flex;
+  gap: 12px;
+
+  &__foto {
+    height: 68px;
+    width: 68px;
+    border-radius: 50%;
+    background: var(--secondary300Color);
+  }
+
+  &__info {
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--neutral600Color);
+  }
+
+  &__date {
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--neutral450Color);
+  }
+
+}

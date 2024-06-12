@@ -1,0 +1,28 @@
+.slider {
+  padding: 4px 0 13px;
+  height: 0;
+  border-radius: 36px;
+  background-color: var(--primary300Color);
+  overflow: hidden;
+z-index: 11;
+  transition: all 0.6s ease;
+
+  &__line {
+    margin: 0 auto;
+    padding: 0;
+    height: 4px;
+    border-radius: 2px;
+    border: none;
+    width: 20%;
+    background-color: var(--primeTextColor);
+  }
+
+  &__slider {
+    margin-top: 10px;
+  }
+}
+
+.visible {
+  height: 72px;
+}
+

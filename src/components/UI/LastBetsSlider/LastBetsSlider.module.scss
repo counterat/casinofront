@@ -1,0 +1,23 @@
+.bets {
+  padding: 6px 0;
+}
+
+.low{
+  div {
+    background-color: var(--danger100Color);
+    color: var(--danger200Color);
+  }
+}
+
+.average {
+  div {
+    background-color: var(--primary300Color);
+  }
+}
+
+.high {
+  div {
+    background-color: var(--primary500Color);
+    color: var(--primeTextColor);
+  }
+}

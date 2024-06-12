@@ -1,0 +1,15 @@
+.home {
+display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+
+  &__main {
+    flex:auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 6px 15px;
+
+  }
+}

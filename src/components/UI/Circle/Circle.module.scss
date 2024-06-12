@@ -1,0 +1,148 @@
+@charset "utf-8";
+:root {
+  --animation-duration: 6s;
+}
+
+.box {
+  border-radius: 50%;
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-mask: radial-gradient(transparent 67px,#fff 68px);
+          mask: radial-gradient(transparent 67px,#fff 68px);
+}
+
+.box:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  width: 160px;
+}
+
+.innerBox {
+  position: absolute;
+  top: 0;
+  width: 160px;
+  aspect-ratio: 1;
+  border-radius: 10%; /* Сглаживание краев */
+  -webkit-mask: radial-gradient(transparent 67px,#fff 68px);
+  mask: radial-gradient(transparent 67px,#fff 68px);
+animation: load  var(--animation-duration) linear; 
+}
+
+.ellipse {
+  width: 160px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: url('../../../assets/img/ellipse.png') center / cover no-repeat;
+  transform: rotate(0deg);
+  animation: rotation 3s linear 0.05s; 
+}
+
+.ellipse2 {
+  position: absolute;
+  top: 0;
+  width: 160px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: url('../../../assets/img/ellipse.png') center / cover no-repeat;
+  transform: rotate(95deg);
+  opacity: 1;
+ animation: rotation2 6s linear 0.05s;
+}
+
+.circle {
+  position: absolute;
+  width: 160px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.number {
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--primeTextColor);
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(-270deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotation2 {
+  0% {
+    opacity: 0;
+    transform: rotate(-270deg);
+  }
+
+  74% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(90deg);
+  }
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%);
+    clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%);
+  }
+  25% {
+    -webkit-clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+  }
+  50% {
+    -webkit-clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%);
+    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%);
+  }
+  75% {
+    -webkit-clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%);
+    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%);
+  }
+  100% {
+    -webkit-clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);
+    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);
+  }
+}
+
+@keyframes load {
+  0% {
+    clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);
+  }
+}

@@ -1,0 +1,293 @@
+.game {
+  min-height: 360px;
+    width: 100%;
+
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 36px;
+  overflow: hidden;
+
+  position: relative;
+  z-index: 1;
+
+  background: var(--gameColor);
+
+  
+  &__info {
+    margin: 11px 19px auto auto;
+    width: 100px;
+    z-index: 2;
+    display: flex;
+  }
+
+  &__ratio {
+    font-weight: 700;
+    font-size: 36px;
+    color: #efeff4;
+  }
+  
+  &__circle-container {
+    margin: 0 auto;
+    flex: auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    z-index: 12;
+  }
+
+  &__modale-container {
+    margin: 0 14px 8px;
+  }
+
+
+  &__addition {
+    font-weight: 500;
+    font-size: 11px;
+    color: #ecf7fb;
+  }
+  &__froget {
+    flex: auto;
+    display: flex;
+
+    align-items: center;
+    height: 100%;
+    z-index:20;
+  }
+
+  &__frog {
+    height: 290px;
+    width: 100%;
+    z-index:20;
+    background: center / 50% no-repeat url('../../assets/img/frog-ezgif.com-gif-to-apng-converter.png');
+  }
+
+  
+  &__clouds {
+    position: absolute;
+  }
+
+  &__cloud1 {
+    margin: 0;
+    width: 35px;
+    height: 25px;
+    position: relative;
+    left: -100px;
+    background: center / contain no-repeat url('../../assets/img/small-cloud.png');
+    animation: cloud 16s ease-in 4s infinite reverse;
+  }
+
+  &__cloud2 {
+    margin: 0;
+    width: 95px;
+    height: 60px;
+    position: relative;
+    left: -100px;
+    background: center / contain no-repeat url('../../assets/img/big-cloud.png');
+    animation: cloud 18s ease-in 8 infinite reverse;
+  }
+
+  &__cloud3 {
+    margin: 0;
+    width: 35px;
+    height: 25px;
+    position: relative;
+    left: -100px;
+    background: center / contain no-repeat url('../../assets/img/small-cloud.png');
+    animation: cloud 12s ease-in 9s infinite reverse;
+  }
+
+  &__cloud4 {
+    margin: 0;
+    width: 70px;
+    height: 40px;
+    position: relative;
+    left: -100px;
+    background: center / contain no-repeat url('../../assets/img/middle-cloud.png');
+    animation: cloud 17s ease-in infinite reverse;
+  }
+
+  &__cloud5 {
+    margin: 0;
+    width: 35px;
+    height: 25px;
+    position: relative;
+    left: -100px;
+    background: center / contain no-repeat url('../../assets/img/small-cloud.png');
+    animation: cloud 11s ease-in 8s infinite reverse;
+  }
+
+  &__cloud6 {
+    margin: 0;
+    width: 70px;
+    height: 40px;
+    position: relative;
+    left: -100px;
+    background: center / contain no-repeat url('../../assets/img/middle-cloud.png');
+    animation: cloud 20s ease-in 3s infinite reverse;
+  }
+
+  &__cloud7 {
+    margin: 0;
+    width: 70px;
+    height: 40px;
+    position: relative;
+    left: -100px;
+    background: center / contain no-repeat url('../../assets/img/middle-cloud.png');
+    animation: cloud 14s ease-in 5s infinite reverse;
+  }
+
+  &__cloud8 {
+    margin: 0;
+    width: 95px;
+    height: 60px;
+    position: relative;
+    left: -100px;
+    background: center / contain no-repeat url('../../assets/img/big-cloud.png');
+    animation: cloud 10s ease-in 2s infinite reverse;
+  }
+
+  &__start {
+    animation: start 5s ease-out, playing ease-out 5s infinite;
+  }
+
+  &__start2 {
+    animation: start 5s ease-out, stay ease-out 3s, playing 5s ease-out 3s infinite;
+  }
+&__flyFromButton{
+  animation: flyFromBottom 1s ease-out;
+ 
+  }
+  
+  &__flyTopRight{
+    animation: flyToTopRight 3s ease-out;
+ 
+    }
+}
+
+@keyframes cloud {
+  0% {
+    margin-left: 0%;
+  }
+  77% {
+    margin-left: 800%;
+    opacity: 1;
+  }
+  78% {
+    margin-left: 800%;
+    opacity: 1;
+  }
+  79% {
+    margin-left: 800%;
+    opacity: 0;
+  }
+  80% {
+    margin-left: -200%;
+    opacity: 0;
+  }
+  81% {
+    margin-left: -200%;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes start {
+  0% {
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+
+  97% {
+    margin-top: 150%;
+    margin-left: -200%;
+    opacity: 1;
+  }
+
+  98% {
+    margin-top: 150%;
+    margin-left: -200%;
+    opacity: 0;
+  }
+
+  99% {
+    margin-top: -100%;
+    margin-left: 0%;
+    opacity: 1;
+  }
+
+  100% {
+    margin-top: -100%;
+    margin-left: 0%;
+  }
+}
+
+@keyframes stay {
+  0% {
+    margin-left: 300%;
+    margin-top: -100%;
+  }
+
+  100% {
+    margin-left: 300%;
+    margin-top: -100%;
+  }
+}
+
+@keyframes playing {
+  0% {
+    margin-left: 300%;
+    margin-top: -100%;
+    opacity: 1;
+  }
+  87% {
+    margin-left: -200%;
+    margin-top: 100%;
+    opacity: 1;
+  }
+  88% {
+    margin-left: -200%;
+    margin-top: 100%;
+    opacity: 1;
+  }
+  89% {
+    margin-left: -200%;
+    margin-top: 100%;
+    opacity: 0;
+  }
+  90% {
+    margin-left: 300%;
+    margin-top: -100%;
+    opacity: 0;
+  }
+  91% {
+    margin-left: 300%;
+    margin-top: -100%;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 300%;
+    margin-top: -100%;
+    opacity: 1;
+  }
+}
+
+@keyframes flyToTopRight{
+ 
+  to{
+ 
+transform: translate(120%, -120%) rotate(180deg);
+  }
+  }
+
+  @keyframes flyFromBottom{
+    from{
+
+     transform: translate(0%, 120%);
+
+
+    }
+
+    }

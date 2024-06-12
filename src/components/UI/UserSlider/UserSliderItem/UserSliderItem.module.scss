@@ -1,0 +1,38 @@
+.slide {
+  margin: 0 16px;
+  padding: 6px;
+  height: 36px;
+  width: 88px;
+  display: flex;
+  border-radius: 40px;
+  background-color: var(--primary200Color);
+
+  &__avatar {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__foto {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: var(--secondary300Color);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--neutral100Color);
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 8px;
+  }
+
+  &__bet {
+    font-weight: 600;
+    font-size: 12px;
+  }
+}

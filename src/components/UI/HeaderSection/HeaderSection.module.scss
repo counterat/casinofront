@@ -1,0 +1,24 @@
+.header {
+  &__buttons {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--neutral600Color);
+  }
+}
+
+.hide {
+  visibility: hidden;
+}

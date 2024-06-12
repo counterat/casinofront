@@ -1,0 +1,32 @@
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  display: flex;
+  min-width: 320px;
+  height: 100vh;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: var(--neutral100Color);
+  color: var(--primeTextColor);
+
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  max-width: 640px;
+}
+
+@media(min-width: 1024px) {
+  button {
+    cursor: pointer;
+  }
+}
+
+.app {
+  height: 100%;
+  display: flex;
+    flex-direction: column;
+}
+
+

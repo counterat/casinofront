@@ -1,0 +1,35 @@
+.balance-action-button {
+  height: 44px;
+  width: 100%;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--primeTextColor);
+
+  -webkit-transition: all 0.3s ease;
+
+  -o-transition: all 0.3s ease;
+
+  transition: all 0.3s ease;
+}
+
+.plus {
+  background: 75% center / 12px 12px url('../../../assets/icons/plus-icon.svg') no-repeat, var(--primary300Color);
+
+  &:active {
+    color: var(--primary300Color);
+    background: 75% center / 12px 12px url('../../../assets/icons/blue-plus-icon.svg') no-repeat, #fff;
+  }
+}
+
+.arrow {
+  background: 75% center / auto url('../../../assets/icons/white-arrow-up.svg') no-repeat, var(--primary300Color);
+
+  &:active {
+    color: var(--primary300Color);
+    background: 75% center / auto url('../../../assets/icons/blue-arrow-up.svg') no-repeat, #fff;
+  }
+}

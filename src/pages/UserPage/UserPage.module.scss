@@ -1,0 +1,88 @@
+.profile {
+  padding: 32px 16px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__id {
+    position: absolute;
+    width: 124px;
+    top: 20px;
+    right: 16px;
+    font-weight: 500;
+    font-size: 10px;
+
+    p {
+      padding: 4px 8px;
+      display: flex;
+      gap: 5px;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 35px;
+      color: #5a5f72;
+      background-color: var(--balanceButtonWrapperBgColor);
+
+      span {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      button {
+        padding: 8px;
+        background: center / cover url('../../assets/icons/copy-dark.svg');
+
+        transition: all 0.3s ease;
+
+        &:active {
+          background: center / cover url('../../assets/icons/copy-light.svg');
+        }
+      }
+    }
+  }
+
+  &__choose-balance {
+    margin: 18px 0 20px;
+    padding: 4px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    background-color: var(--balanceButtonWrapperBgColor);
+    border-radius: 20px;
+  }
+
+  &__balance-actions {
+    margin-bottom: 28px;
+    padding: 14px 12px 12px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 24px;
+    background-color: var(--checkboxShevronColor);
+  }
+
+  &__balance {
+    text-align: center;
+
+    span {
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 36px;
+
+      span {
+        padding-left: 5px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__balance-buttons {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+}

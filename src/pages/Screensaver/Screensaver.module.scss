@@ -1,0 +1,26 @@
+.screensaver {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+
+  &__loader {
+    height: 150px;
+    aspect-ratio: 1;
+    background: center / contain no-repeat url('../../assets/icons/loader-icon.svg');
+
+    animation: load 5s linear infinite;
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

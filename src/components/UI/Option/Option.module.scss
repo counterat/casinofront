@@ -1,0 +1,29 @@
+.option {
+  padding: 12px 8px;
+  height: 44px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  color: var(--dropdownAmountColor);
+  background-color: var(--neutral100Color);
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 20px;
+    aspect-ratio: 1;
+  }
+
+  &__title {
+    padding-left: 8px;
+  }
+
+  &__selected {
+    background-color: rgba(20, 142, 255, 0.1);
+  }
+}

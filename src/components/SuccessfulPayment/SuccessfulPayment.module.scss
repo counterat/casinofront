@@ -1,0 +1,39 @@
+.modal {
+  padding: 16px;
+  width: 292px;
+  height: 154px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--modalBgColor);
+  text-align: center;
+
+  &__title {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--neutral600Color);
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--modalSubtitleTextColor);
+  }
+
+  &__close {
+    padding: 13px 0;
+    border-radius: 12px;
+    font-size: 12px;
+    color: var(--primeTextColor);
+    background-color: var(--primary300Color);
+
+    transition: all 0.3s ease;
+
+    &:active {
+      background-color: #fff;
+      color: var(--primary300Color);
+    }
+  }
+}
