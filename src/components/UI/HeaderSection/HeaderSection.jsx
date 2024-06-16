@@ -18,6 +18,9 @@ export const HeaderSection = ({
   hasAddress,
   getModalTitle = () => {},
   title,
+  setHasForm = undefined,
+  setHasAddress = undefined,
+  setIsAddressClose = undefined,
 }) => {
   const getBack = () => {
     setOnClose(setIsThisModalClose, setHasThisModal);
@@ -25,18 +28,20 @@ export const HeaderSection = ({
   };
 
   const setClose = () => {
+    if (setHasForm) setHasForm(false);
+    if (setHasAddress && setIsAddressClose)
+      setOnClose(setIsAddressClose, setHasAddress);
     setOnClose(setIsThisModalClose, setHasThisModal);
-    closeHandler(false)
+    closeHandler(false);
   };
 
   return (
     <header>
       <div className={styles.header__buttons}>
         <button
-          className={cn(
-            styles.header__close,
-            { [styles.hide]: !hasForm && !hasAddress}
-          )}
+          className={cn(styles.header__close, {
+            [styles.hide]: !hasForm && !hasAddress,
+          })}
           type="button"
           onClick={() => getBack()}
           disabled={!hasForm && !hasAddress}
@@ -45,10 +50,7 @@ export const HeaderSection = ({
         </button>
 
         <button
-          className={cn(
-            styles.header__close,
-            { [styles.hide]: hasSuccess}
-          )}
+          className={cn(styles.header__close, { [styles.hide]: hasSuccess })}
           type="button"
           onClick={() => setClose()}
         >
@@ -57,11 +59,8 @@ export const HeaderSection = ({
       </div>
 
       <h3 className={styles.header__title}>
-        {!title
-          ? getModalTitle(hasForm, hasSuccess, hasAddress)
-          : title
-        }
+        {!title ? getModalTitle(hasForm, hasSuccess, hasAddress) : title}
       </h3>
-  </header>
+    </header>
   );
 };

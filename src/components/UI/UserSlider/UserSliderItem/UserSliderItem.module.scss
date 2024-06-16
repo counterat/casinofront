@@ -1,5 +1,4 @@
 .slide {
-  margin: 0 16px;
   padding: 6px;
   height: 36px;
   width: 88px;
@@ -29,6 +28,12 @@
   &__name {
     font-weight: 500;
     font-size: 8px;
+
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   &__bet {

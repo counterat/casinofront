@@ -9,8 +9,7 @@ export const HomePage = () => {
 
         <GameItem />
       </div>
-<Footer/>
-
+      <Footer />
     </section>
   );
 };

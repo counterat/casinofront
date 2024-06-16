@@ -7,109 +7,103 @@ import { USER } from '../../../utils/constants';
 import { selectBalance } from '../../../redux/features/balanceSlice';
 
 import ShevronIcon from '../../../assets/icons/chevron-right-white.svg?react';
-import {
-  USD_SYMBOL,
-  
-} from '../../../utils/constants';
+import { USD_SYMBOL } from '../../../utils/constants';
 
 import styles from './HeaderDropdown.module.scss';
 
 export const HeaderDropdown = ({ options }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const { selectedBalance } = useSelector(state => state.selectedBalance);
-  
+  const { selectedBalance } = useSelector((state) => state.selectedBalance);
+
   const dispatch = useDispatch();
 
   const dropdownRef = useRef();
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(prev => !prev);
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const selectOptionHandler = (option) => {
-    console.log(selectedBalance)
+    console.log(selectedBalance);
     dispatch(selectBalance(option));
 
     toggleDropdown();
-  }
+  };
 
-  const user = useRef()
+  const user = useRef();
 
-user.current = useSelector(state=>state.user.user);
+  user.current = useSelector((state) => state.user.user);
   useEffect(() => {
- function handleClickOutside(event) {
-      if (dropdownRef.current
-        && !dropdownRef.current.contains(event.target)) {
-          setIsDropdownOpen(false);
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
       }
     }
 
     window.addEventListener('click', handleClickOutside);
-    
-  
+
     /*  var deposit_balance = ((user['deposit_balance']))
          var bonus_balance = (user['bonus_balance']) */
-   
-      
+
     return () => {
       window.removeEventListener('click', handleClickOutside);
     };
-
-
-
   }, []);
 
   return (
     <div className={styles.dropdown} ref={dropdownRef}>
       <button
-        className={cn(
-          styles.dropdown__button,
-          { [styles['active-btn']]: isDropdownOpen }
-        )}
+        className={cn(styles.dropdown__button, {
+          [styles['active-btn']]: isDropdownOpen,
+        })}
         onClick={toggleDropdown}
       >
         <p>
           <span>{USD_SYMBOL}</span>
 
-          {(selectedBalance && selectedBalance.balance== 'mainBalance') ? user.current.deposit_balance : user.current.bonus_balance}
-          
+          {selectedBalance && selectedBalance.balance == 'mainBalance'
+            ? user.current?.deposit_balance
+            : user.current?.bonus_balance}
         </p>
 
-        {<ShevronIcon className={cn(
-            styles.dropdown__icon,
-            { [styles.dropdown__open]: isDropdownOpen },
-          )}
-        />}
+        {
+          <ShevronIcon
+            className={cn(styles.dropdown__icon, {
+              [styles.dropdown__open]: isDropdownOpen,
+            })}
+          />
+        }
       </button>
 
       <ul
-        className={cn(
-          styles.dropdown__options,
-          { [styles.active]: isDropdownOpen }
-        )}
+        className={cn(styles.dropdown__options, {
+          [styles.active]: isDropdownOpen,
+        })}
       >
-        {options.map(option => {
+        {options.map((option) => {
           const isSelected = option.balance === selectedBalance.balance;
 
           return (
-          <li key={option.balance}>
-            <button
-              onClick={() => selectOptionHandler(option)}
-              className={cn(
-                styles.dropdown__option,
-                { [styles.dropdown__selected]: isSelected },
-              )}
-            >
-              <span>{option.title}</span>
+            <li key={option.balance}>
+              <button
+                onClick={() => selectOptionHandler(option)}
+                className={cn(styles.dropdown__option, {
+                  [styles.dropdown__selected]: isSelected,
+                })}
+              >
+                <span>{option.title}</span>
 
-              <p>
-              {(option.balance== 'mainBalance') ? user.current.deposit_balance : user.current.bonus_balance}
-                <span>{USD_SYMBOL}</span>
-              </p>
-            </button>
-          </li>
-        )})}
+                <p>
+                  {option.balance == 'mainBalance'
+                    ? user.current?.deposit_balance
+                    : user.current?.bonus_balance}
+                  <span>{USD_SYMBOL}</span>
+                </p>
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

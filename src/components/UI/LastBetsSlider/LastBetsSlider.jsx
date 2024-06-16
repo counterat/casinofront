@@ -12,7 +12,11 @@ import { io } from 'socket.io-client';
 
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { setLastGames, addNewElement, deleteLastElement } from '../../../redux/features/lastGamesSlice';
+import {
+  setLastGames,
+  addNewElement,
+  deleteLastElement,
+} from '../../../redux/features/lastGamesSlice';
 export const LastBetsSlider = ({
   // bets,
   // isLoading,
@@ -22,46 +26,42 @@ export const LastBetsSlider = ({
   const dispatch = useDispatch();
   // const hasErrorMessage = hasError && !isLoading;
   // const hasNoItemsOnServer = !bets.length && !hasError && !isLoading;
- 
+
   const slideWidth = 64;
   const spaceBetween = 6;
   var previousXes;
-  var bets =useRef()
+  var bets = useRef();
 
-  bets.current = useSelector((state)=>state.lastGames.lastGames);
+  bets.current = useSelector((state) => state.lastGames.lastGames);
 
-  var currentMultiplier = useRef()
-  currentMultiplier.current=useSelector((state)=>state.game.game.currentMultiplier)
+  var currentMultiplier = useRef();
+  currentMultiplier.current = useSelector(
+    (state) => state.game.game.currentMultiplier
+  );
 
   useEffect(() => {
-    
     getPreviousXes()
-      .then(response => {
-        dispatch(setLastGames((response.data))); // Устанавливаем данные о ставках в состояние
+      .then((response) => {
+        dispatch(setLastGames(response.data)); // Устанавливаем данные о ставках в состояние
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error fetching bets:', error);
       });
-   
 
-      function crash_handler(){
-        
-
-          if(bets.current.length >=20){
-            dispatch(deleteLastElement())
-          }
-          
-                dispatch(addNewElement(currentMultiplier.current))  
-          
-                }
-      
-      socket.on('crash', crash_handler)
-
-      return ()=>{
-        socket.off('crash', crash_handler)
+    function crash_handler() {
+      if (bets.current.length >= 20) {
+        dispatch(deleteLastElement());
       }
-  }, []);
 
+      dispatch(addNewElement(currentMultiplier.current));
+    }
+
+    socket.on('crash', crash_handler);
+
+    return () => {
+      socket.off('crash', crash_handler);
+    };
+  }, []);
 
   return (
     <section className={styles.bets}>
@@ -87,12 +87,19 @@ export const LastBetsSlider = ({
         spaceBetween={spaceBetween}
         slidesPerView={getSlidesPerView(slideWidth, spaceBetween, bets.current)}
       >
-        { 
- useSelector((state) => state.lastGames.lastGames).map(bet => {
+        {useSelector((state) => state.lastGames.lastGames).map((bet, index) => {
           return (
             <SwiperSlide
-              key={ Math.random().toString(36).substr(2, 9)}
-              className={styles.slide +' '+ (bet <= 1.1 ? styles.low:(bet<2 ? styles.average : styles.high))}
+              key={index}
+              className={
+                styles.slide +
+                ' ' +
+                (bet <= 1.1
+                  ? styles.low
+                  : bet < 2
+                    ? styles.average
+                    : styles.high)
+              }
             >
               <Bet bet={bet} />
             </SwiperSlide>
@@ -100,5 +107,5 @@ export const LastBetsSlider = ({
         })}
       </Swiper>
     </section>
-  )
+  );
 };

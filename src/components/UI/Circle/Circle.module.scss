@@ -1,148 +1,89 @@
 @charset "utf-8";
-:root {
-  --animation-duration: 6s;
-}
+$r: 2.5em; // outer radius of ring
+$b: 0.2 * $r; // ring thickness
+$u: 0.5 * $b;
+// $time: attr(var(data-time));
+$e: cubic-bezier(0.365, 0, 0.63, 1);
 
-.box {
-  border-radius: 50%;
+@property --x {
+  syntax: '<length-percentage>';
+  initial-value: 0px;
+  inherits: false;
+}
+@property --y {
+  syntax: '<length-percentage>';
+  initial-value: 0px;
+  inherits: false;
+}
+.wrapper {
   position: relative;
-  background: rgba(255, 255, 255, 0.2);
-  -webkit-mask: radial-gradient(transparent 67px,#fff 68px);
-          mask: radial-gradient(transparent 67px,#fff 68px);
+  display: grid;
+  place-items: center;
+  font: 900 3em cuisine;
+  z-index: 100;
 }
 
-.box:before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-}
+.load {
+  --p: 0;
+  display: grid;
+  counter-reset: p var(--p);
 
-.container {
-  margin: 0 auto;
-  width: 160px;
-}
+  &::before,
+  &::after {
+    grid-area: 1/ 1;
+    background: #ffff;
+  }
 
-.innerBox {
+  &::before {
+    --r: calc(100% - #{$b});
+    --round: red calc(#{$u} - 1px), #0000 #{$u};
+    --mask: radial-gradient(
+        closest-side,
+        #0000 var(--r),
+        red calc(var(--r) + 1px) calc(100% - 1px),
+        #0000
+      ),
+      conic-gradient(red calc(var(--p) * 1%), #0000 0%);
+
+    padding: $r;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    content: '';
+  }
+
+  &::after {
+    content: counter(p) '%';
+    display: grid;
+    place-items: center;
+    color: #fff;
+    -webkit-background-clip: text;
+  }
+}
+.loadBackDrop {
+  display: grid;
+  counter-reset: p var(--p);
   position: absolute;
-  top: 0;
-  width: 160px;
-  aspect-ratio: 1;
-  border-radius: 10%; /* Сглаживание краев */
-  -webkit-mask: radial-gradient(transparent 67px,#fff 68px);
-  mask: radial-gradient(transparent 67px,#fff 68px);
-animation: load  var(--animation-duration) linear; 
-}
+  inset: 0;
+  display: grid;
+  &::before {
+    --r: calc(100% - #{$b});
+    --mask: radial-gradient(
+        closest-side,
+        #0000 var(--r),
+        red calc(var(--r) + 1px) calc(100% - 1px),
+        #0000
+      ),
+      conic-gradient(red calc(100 * 1%), #0000 0%);
 
-.ellipse {
-  width: 160px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: url('../../../assets/img/ellipse.png') center / cover no-repeat;
-  transform: rotate(0deg);
-  animation: rotation 3s linear 0.05s; 
-}
-
-.ellipse2 {
-  position: absolute;
-  top: 0;
-  width: 160px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: url('../../../assets/img/ellipse.png') center / cover no-repeat;
-  transform: rotate(95deg);
-  opacity: 1;
- animation: rotation2 6s linear 0.05s;
-}
-
-.circle {
-  position: absolute;
-  width: 160px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.number {
-  font-weight: 700;
-  font-size: 36px;
-  color: var(--primeTextColor);
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(-270deg);
-  }
-
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes rotation2 {
-  0% {
-    opacity: 0;
-    transform: rotate(-270deg);
-  }
-
-  74% {
-    opacity: 0;
-  }
-
-  75% {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 1;
-    transform: rotate(90deg);
-  }
-}
-
-@-webkit-keyframes load {
-  0% {
-    -webkit-clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%);
-    clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%);
-  }
-  25% {
-    -webkit-clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
-    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
-  }
-  50% {
-    -webkit-clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%);
-    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%);
-  }
-  75% {
-    -webkit-clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%);
-    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%);
-  }
-  100% {
-    -webkit-clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);
-    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);
-  }
-}
-
-@keyframes load {
-  0% {
-    clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%);
-  }
-  25% {
-    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
-  }
-  50% {
-    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%);
-  }
-  75% {
-    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%);
-  }
-  100% {
-    clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);
+    padding: $r;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    content: '';
+    grid-area: 1/ 1;
+    background: rgba(255, 255, 255, 0.2);
   }
 }

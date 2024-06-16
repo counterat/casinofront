@@ -8,25 +8,22 @@ body {
   font-weight: 600;
   background-color: var(--neutral100Color);
   color: var(--primeTextColor);
-
 }
 
 #root {
-  height: 100%;
   width: 100%;
   max-width: 640px;
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   button {
     cursor: pointer;
   }
 }
 
 .app {
-  height: 100%;
+  height: 100vh;
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
 }
-
-

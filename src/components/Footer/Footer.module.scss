@@ -1,26 +1,24 @@
 .footer {
-  position:relative;
-bottom:0;
-margin-top: auto;
+  position: relative;
+  bottom: 0;
   width: 100%;
   max-width: 640px;
   font-weight: 700;
   font-size: 22px;
   color: var(--primeTextColor);
 
-  
-&__continue{
-  flex: 1;
-  background-color:var(--primary400BgColor);
-}
+  &__continue {
+    flex: 1;
+    background-color: var(--primary400BgColor);
+  }
 
   &__rate-section {
-  padding: 16px 16px 12px 16px;
-  width: 100%;
-  display: flex;
-  gap: 12px;
-  border-radius: 36px 36px 0 0;
-  background-color: var(--primary400BgColor);
+    padding: 16px 16px 12px 16px;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    border-radius: 36px 36px 0 0;
+    background-color: var(--primary400BgColor);
   }
 
   &__rate-management {
@@ -63,7 +61,7 @@ margin-top: auto;
     &::-ms-input-placeholder {
       color: var(--primary200Color);
     }
-}
+  }
 
   &__multiple-divide-section {
     display: flex;
@@ -158,15 +156,16 @@ margin-top: auto;
   }
 
   &__checked {
-    background: center / cover url('../../assets/icons/checkbox-icon.svg') no-repeat;
+    background: center / cover url('../../assets/icons/checkbox-icon.svg')
+      no-repeat;
     border: none;
   }
 }
 
 .error {
   &__message {
-   /*  position: absolute; */
-   /*  top: -11px;
+    /*  position: absolute; */
+    /*  top: -11px;
     left: 5px; */
     font-size: 8px;
   }
