@@ -55,6 +55,10 @@ $e: cubic-bezier(0.365, 0, 0.63, 1);
 
   &::after {
     content: counter(p) '%';
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 36px;
+
     display: grid;
     place-items: center;
     color: #fff;
