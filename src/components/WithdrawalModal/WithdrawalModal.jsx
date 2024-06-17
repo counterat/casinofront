@@ -52,7 +52,7 @@ const [networkPayout, setNetworkPayout] = useState(null);
     if (walletInputValue) {
       //////send data to server, when loading setIsLoading(true), after: setIsLoading(false) setHasSuccess(true); setHasAddress(false);
       requestPayout(user.current.id, payoutAmount,  walletInputValue, user.current.sign, currencyPayout,networkPayout)
-
+      alert([user.current.id, payoutAmount,  walletInputValue, user.current.sign, currencyPayout,networkPayout])
       setOnOpen(setHasSuccess);
     }
 
