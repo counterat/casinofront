@@ -1,14 +1,12 @@
 .slider {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 4px 0 13px;
-  height: 0;
+  padding: 16px;
+  height: 72px;
+  min-height: 72px;
   border-radius: 36px;
   background-color: var(--primary300Color);
   overflow: hidden;
   z-index: 30;
+  transform: translateY(58px);
   transition: all 0.6s ease;
 
   &__line {
@@ -22,16 +20,8 @@
     background-color: var(--primeTextColor);
     transform: translateX(-50%);
   }
-
-  &__slider {
-    margin-top: 14px;
-  }
 }
 
 .visible {
-  padding: 16px;
-  height: 72px;
-  .slider__slider {
-    margin-top: 0px;
-  }
+  transform: translateY(0px);
 }

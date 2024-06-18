@@ -55,13 +55,15 @@ $e: cubic-bezier(0.365, 0, 0.63, 1);
 
   &::after {
     content: counter(p) '%';
-    font-family: Inter;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 36px;
-
+    text-align: center;
+    line-height: 110%;
+    letter-spacing: -0.01em;
     display: grid;
     place-items: center;
-    color: #fff;
+    color: #efeff4;
     -webkit-background-clip: text;
   }
 }

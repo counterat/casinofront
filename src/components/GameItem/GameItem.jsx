@@ -15,6 +15,8 @@ import {
 import { setIsError, setErrorMsg } from '../../redux/features/isErrorSlice';
 import { io } from 'socket.io-client';
 
+import frogImage from '../../assets/img/frog-ezgif.com-gif-to-apng-converter.png'
+
 import { Circle, WinLoseBoard } from '../';
 
 export const GameItem = () => {
@@ -29,7 +31,7 @@ export const GameItem = () => {
   const [isStartedRecently, setIsStartedRecently] = useState(false);
   const [isFinishedRecently, setIsFinishedRecently] = useState(false);
   const [isSuccessfulPayment, setIsSuccessfulPayment] = useState(false);
-
+  const [isFetchingFrog, setIsFetchingFrog] = useState(false)
   const [progress, setProgress] = useState(100);
 
   var resultsOfGame = useRef();
@@ -122,6 +124,10 @@ export const GameItem = () => {
   }, [resultsOfGame.current.isSuccess, isError.current]);
   currentBet.current = useSelector((state) => state.currentBet.currentBet);
 
+  useEffect(() => {
+    fetch(frogImage).finally(() => setIsFetchingFrog(true))
+  }, []);
+
   return (
     <section className={styles.game}>
       <div className={styles.game__info}>
@@ -135,10 +141,10 @@ export const GameItem = () => {
 
       {!(!isFroget && isCircleVisible && !isDisplaying) && (
         <div className={`${styles.game__froget} `}>
-          <div
+        {isFetchingFrog && <div
             className={`${styles.game__frog}  ${isStartedRecently && !isFinishedRecently ? styles.game__flyFromButton : ''} ${isFinishedRecently ? styles.game__flyTopRight : ''}`}
             style={!isFroget ? { display: 'none' } : null}
-          />
+          />}
         </div>
       )}
 
@@ -163,7 +169,7 @@ export const GameItem = () => {
                 : resultsOfGame.current.isSuccess
             }
             rate={
-              isError.current ? '' : resultsOfGame.current.amount.toFixed(2)
+              isError.current ? '' : resultsOfGame?.current?.amount?.toFixed(2)
             }
           />
         )}
